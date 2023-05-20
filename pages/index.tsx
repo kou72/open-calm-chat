@@ -1,14 +1,27 @@
 export default function Home() {
   return (
     <div className="bg-green-100 min-h-screen">
-      <div className="flex flex-col justify-center items-center">
+      <div className="h-[calc(100vh-160px)] flex flex-col items-center overflow-y-auto">
         <div className="flex justify-center text-4xl font-mono font-extrabold text-gray-700 py-12 w-full">
           open-calm-chat
         </div>
-        <div className="w-[80%] sm:w-[512px] flex flex-col justify-center gap-4 text-sm">
+        <div className="w-[80%] sm:w-[512px] flex flex-col justify-center gap-4 text-sm mb-8">
           <div className="rounded-3xl bg-white py-2 px-4">Coming soon...</div>
           <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
           <div className="rounded-3xl bg-white py-2 px-4">Coming soon...</div>
+          <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
+          <div className="rounded-3xl bg-white py-2 px-4">Coming soon...</div>
+          <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
+          <div className="rounded-3xl bg-white py-2 px-4">Coming soon...</div>
+          <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
+          <div className="rounded-3xl bg-white py-2 px-4">Coming soon...</div>
+          <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
+          <div className="rounded-3xl bg-white py-2 px-4">Coming soon...</div>
+          <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
+          <div className="rounded-3xl bg-white py-2 px-4">Coming soon...</div>
+          <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
+          <div className="rounded-3xl bg-white py-2 px-4">Coming soon...</div>
+          <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
         </div>
         <div className="w-[80%] sm:w-[512px] fixed bottom-0 mb-16">
           <textarea
