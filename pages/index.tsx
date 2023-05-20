@@ -5,12 +5,12 @@ export default function Home() {
         <div className="flex justify-center text-4xl font-mono font-extrabold text-gray-700 py-12 w-full">
           open-calm-chat
         </div>
-        <div className="w-80 flex flex-col justify-center gap-4 text-sm">
+        <div className="w-[80%] sm:w-[512px] flex flex-col justify-center gap-4 text-sm">
           <div className="rounded-3xl bg-white py-2 px-4">Coming soon...</div>
           <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
           <div className="rounded-3xl bg-white py-2 px-4">Coming soon...</div>
         </div>
-        <div className="w-80 fixed bottom-0 mb-16">
+        <div className="w-[80%] sm:w-[512px] fixed bottom-0 mb-16">
           <textarea
             className="w-full h-24 py-2 px-4 text-sm border-2 border-gray-400 focus:border-gray-500 rounded-xl resize-none"
             style={{ outline: "none", boxShadow: "none" }}
