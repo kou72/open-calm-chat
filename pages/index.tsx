@@ -1,4 +1,8 @@
+import { useOpenCalm } from "../hooks/useOpenCalm";
+
 export default function Home() {
+  const { input, setInput } = useOpenCalm();
+
   return (
     <div className="bg-green-100 min-h-screen">
       <div className="h-[calc(100vh-160px)] flex flex-col items-center overflow-y-auto">
@@ -6,7 +10,7 @@ export default function Home() {
           open-calm-chat
         </div>
         <div className="w-[80%] sm:w-[512px] flex flex-col justify-center gap-4 text-sm mb-8">
-          <div className="rounded-3xl bg-white py-2 px-4">Coming soon...</div>
+          <div className="rounded-3xl bg-white py-2 px-4">{input}</div>
           <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
           <div className="rounded-3xl bg-white py-2 px-4">Coming soon...</div>
           <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
@@ -27,6 +31,9 @@ export default function Home() {
           <textarea
             className="w-full h-24 py-2 px-4 text-sm border-2 border-gray-400 focus:border-gray-500 rounded-xl resize-none"
             style={{ outline: "none", boxShadow: "none" }}
+            placeholder="メッセージを入力"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
           />
         </div>
         <div className="w-full h-12 flex justify-center fixed bottom-0 bg-white border-t border-gray-300 ">
