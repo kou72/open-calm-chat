@@ -6,6 +6,7 @@ export default function Home() {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
       input && addChat(input);
+      setInput("");
     }
   };
 
@@ -45,7 +46,10 @@ export default function Home() {
             </button>
             <button
               className="w-28 bg-green-300 rounded-full py-1"
-              onClick={() => input && addChat(input)}
+              onClick={() => {
+                input && addChat(input);
+                setInput("");
+              }}
             >
               送信
             </button>
