@@ -8,5 +8,9 @@ export const useOpenCalm = () => {
     setChat([...chat, message]);
   };
 
-  return { input, chat, setInput, addChat };
+  const resetChat = () => {
+    setChat([]);
+  };
+
+  return { input, chat, setInput, addChat, resetChat };
 };

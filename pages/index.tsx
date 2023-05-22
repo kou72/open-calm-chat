@@ -1,7 +1,7 @@
 import { useOpenCalm } from "../hooks/useOpenCalm";
 
 export default function Home() {
-  const { input, chat, setInput, addChat } = useOpenCalm();
+  const { input, chat, setInput, addChat, resetChat } = useOpenCalm();
 
   return (
     <div className="bg-green-100 min-h-screen">
@@ -30,7 +30,10 @@ export default function Home() {
         </div>
         <div className="w-full h-12 flex justify-center fixed bottom-0 bg-white border-t border-gray-300 ">
           <div className="w-80 flex justify-evenly items-center h-full">
-            <button className="w-28 bg-white border border-green-500 rounded-full py-1">
+            <button
+              className="w-28 bg-white border border-green-500 rounded-full py-1"
+              onClick={() => resetChat()}
+            >
               履歴リセット
             </button>
             <button className="w-28 bg-green-300 rounded-full py-1" onClick={() => addChat(input)}>
