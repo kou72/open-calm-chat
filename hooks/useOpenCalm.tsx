@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 const getLocalStrage = (key: string) => {
   if (typeof window === "undefined") return;
@@ -41,14 +42,35 @@ export const useOpenCalm = () => {
     }
   }, []);
 
-  const addChat = (message: string) => {
+  const addChat = async (message: string) => {
     setChat([...chat, message]);
     setLocalStrage("chat", [...chat, message]);
+    const data = await requestOpenCalm(message);
+    console.log(data);
   };
 
   const resetChat = () => {
     setChat([]);
     setLocalStrage("chat", []);
+  };
+
+  const requestOpenCalm = async (message: string) => {
+    try {
+      const response = await axios.post(
+        "https://opencalm.ngrok.app",
+        {
+          instruction: message,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return { input, chat, setInput, addChat, resetChat };
