@@ -3,6 +3,12 @@ import { useOpenCalm } from "../hooks/useOpenCalm";
 export default function Home() {
   const { input, chat, setInput, addChat, resetChat } = useOpenCalm();
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
+      input && addChat(input);
+    }
+  };
+
   return (
     <div className="bg-green-100 min-h-screen">
       <div className="h-[calc(100vh-160px)] flex flex-col items-center overflow-y-auto">
@@ -26,6 +32,7 @@ export default function Home() {
             placeholder="メッセージを入力"
             value={input}
             onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => handleKeyDown(e)}
           />
         </div>
         <div className="w-full h-12 flex justify-center fixed bottom-0 bg-white border-t border-gray-300 ">
