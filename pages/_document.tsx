@@ -5,7 +5,10 @@ export default function Document() {
     <Html>
       <Head>
         <title>open-calm-chat</title>
-        <meta property="og:image" content="" />
+        <meta
+          property="og:image"
+          content="https://raw.githubusercontent.com/kou72/open-calm-chat/main/public/open-calm-chat.png"
+        />
       </Head>
       <body>
         <Main />
