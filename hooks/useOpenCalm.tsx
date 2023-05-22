@@ -20,15 +20,16 @@ const setLocalStrage = (key: string, value: any) => {
 };
 
 export const useOpenCalm = () => {
+  const initialChat = ["こんにちは", "こんにちは！何かお手伝いできることがありますか？"];
   const [input, setInput] = useState("");
-  const [chat, setChat] = useState<string[]>([
-    "こんにちは",
-    "こんにちは！何かお手伝いできることがありますか？",
-  ]);
+  const [chat, setChat] = useState<string[]>(initialChat);
 
   useEffect(() => {
     const localChat = getLocalStrage("chat");
     if (localChat) setChat(localChat);
+    if (localChat.length === 0) {
+      setChat(initialChat);
+    }
   }, []);
 
   const addChat = (message: string) => {
