@@ -1,7 +1,7 @@
 import { useOpenCalm } from "../hooks/useOpenCalm";
 
 export default function Home() {
-  const { input, setInput } = useOpenCalm();
+  const { input, chat, setInput, addChat } = useOpenCalm();
 
   return (
     <div className="bg-green-100 min-h-screen">
@@ -10,7 +10,7 @@ export default function Home() {
           open-calm-chat
         </div>
         <div className="w-[80%] sm:w-[512px] flex flex-col justify-center gap-4 text-sm mb-8">
-          <div className="rounded-3xl bg-white py-2 px-4">{input}</div>
+          <div className="rounded-3xl bg-white py-2 px-4">{chat[0]}</div>
           <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
           <div className="rounded-3xl bg-white py-2 px-4">Coming soon...</div>
           <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
@@ -41,7 +41,9 @@ export default function Home() {
             <button className="w-28 bg-white border border-green-500 rounded-full py-1">
               履歴リセット
             </button>
-            <button className="w-28 bg-green-300 rounded-full py-1">送信</button>
+            <button className="w-28 bg-green-300 rounded-full py-1" onClick={() => addChat(input)}>
+              送信
+            </button>
           </div>
         </div>
       </div>
