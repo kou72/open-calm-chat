@@ -21,7 +21,11 @@ const setLocalStrage = (key: string, value: any) => {
 };
 
 const formatChat = (chat: string[]) => {
-  return chat.map((message, index) => (index % 2 === 0 ? "Q:" : "A:") + message).join("");
+  let formattedChat = chat
+    .map((message, index) => (index % 2 === 0 ? "Q:" : "A:") + message)
+    .join("");
+  formattedChat += "A:";
+  return formattedChat;
 };
 
 const parseChat = (formattedChat: string) => {
@@ -43,10 +47,18 @@ export const useOpenCalm = () => {
   }, []);
 
   const addChat = async (message: string) => {
-    setChat([...chat, message]);
-    setLocalStrage("chat", [...chat, message]);
-    const data = await requestOpenCalm(message);
-    console.log(data);
+    let formattedChat;
+    if (chat.length == 0) {
+      setChat([message, "リクエスト中..."]);
+      formattedChat = formatChat([message]);
+    } else {
+      setChat([...chat, message, "リクエスト中..."]);
+      formattedChat = formatChat([...chat, message]);
+    }
+    const data = await requestOpenCalm(formattedChat);
+    const parsedChat = parseChat(data);
+    setChat(parsedChat);
+    setLocalStrage("chat", parsedChat);
   };
 
   const resetChat = () => {
