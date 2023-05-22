@@ -10,22 +10,14 @@ export default function Home() {
           open-calm-chat
         </div>
         <div className="w-[80%] sm:w-[512px] flex flex-col justify-center gap-4 text-sm mb-8">
-          <div className="rounded-3xl bg-white py-2 px-4">{chat[0]}</div>
-          <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
-          <div className="rounded-3xl bg-white py-2 px-4">Coming soon...</div>
-          <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
-          <div className="rounded-3xl bg-white py-2 px-4">Coming soon...</div>
-          <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
-          <div className="rounded-3xl bg-white py-2 px-4">Coming soon...</div>
-          <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
-          <div className="rounded-3xl bg-white py-2 px-4">Coming soon...</div>
-          <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
-          <div className="rounded-3xl bg-white py-2 px-4">Coming soon...</div>
-          <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
-          <div className="rounded-3xl bg-white py-2 px-4">Coming soon...</div>
-          <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
-          <div className="rounded-3xl bg-white py-2 px-4">Coming soon...</div>
-          <div className="rounded-3xl bg-gray-300 py-2 px-4">Coming soon...</div>
+          {chat.map((message, index) => (
+            <div
+              key={index}
+              className={`rounded-3xl py-2 px-4 ${index % 2 === 0 ? "bg-white" : "bg-gray-300"}`}
+            >
+              {message}
+            </div>
+          ))}
         </div>
         <div className="w-[80%] sm:w-[512px] fixed bottom-0 mb-16">
           <textarea
