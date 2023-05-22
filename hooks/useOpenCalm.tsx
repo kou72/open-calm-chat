@@ -19,6 +19,15 @@ const setLocalStrage = (key: string, value: any) => {
   }
 };
 
+const formatChat = (chat: string[]) => {
+  return chat.map((message, index) => (index % 2 === 0 ? "Q:" : "A:") + message).join("");
+};
+
+const parseChat = (formattedChat: string) => {
+  const splitChat = formattedChat.split(/(?=Q:|A:)/);
+  return splitChat.map((message) => message.slice(2));
+};
+
 export const useOpenCalm = () => {
   const initialChat = ["こんにちは", "こんにちは！何かお手伝いできることがありますか？"];
   const [input, setInput] = useState("");
