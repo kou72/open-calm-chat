@@ -40,7 +40,7 @@ export const useOpenCalm = () => {
   useEffect(() => {
     const localChat = getLocalStrage("chat");
     if (localChat) setChat(localChat);
-    if (localChat.length === 0) {
+    if (localChat && localChat.length === 0) {
       setChat(initialChat);
     }
   }, []);
