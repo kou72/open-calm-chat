@@ -9,6 +9,10 @@ export default function Document() {
           property="og:image"
           content="https://raw.githubusercontent.com/kou72/open-calm-chat/main/public/open-calm-chat.png"
         />
+        <meta
+          name="twitter:image"
+          content="https://raw.githubusercontent.com/kou72/open-calm-chat/main/public/open-calm-chat.png"
+        />
       </Head>
       <body>
         <Main />
