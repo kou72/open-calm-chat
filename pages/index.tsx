@@ -36,7 +36,10 @@ export default function Home() {
             >
               履歴リセット
             </button>
-            <button className="w-28 bg-green-300 rounded-full py-1" onClick={() => addChat(input)}>
+            <button
+              className="w-28 bg-green-300 rounded-full py-1"
+              onClick={() => input && addChat(input)}
+            >
               送信
             </button>
           </div>
