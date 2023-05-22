@@ -58,6 +58,8 @@ export const useOpenCalm = () => {
     const response = removeCharsFromStart(data, formattedChat.length);
     setChat([...chat, message, response]);
     setLocalStrage("chat", [...chat, message, response]);
+    console.log("request", formattedChat);
+    console.log("response", data);
   };
 
   const resetChat = () => {
