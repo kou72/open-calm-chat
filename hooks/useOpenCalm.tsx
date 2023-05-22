@@ -47,7 +47,7 @@ export const useOpenCalm = () => {
 
   const addChat = async (message: string) => {
     let formattedChat;
-    if (chat.length == 0) {
+    if (!chat || chat.length == 0) {
       setChat([message, "リクエスト中..."]);
       formattedChat = formatChat([message]);
     } else {
