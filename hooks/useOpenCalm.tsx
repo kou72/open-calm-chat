@@ -28,9 +28,8 @@ const formatChat = (chat: string[]) => {
   return formattedChat;
 };
 
-const parseChat = (formattedChat: string) => {
-  const splitChat = formattedChat.split(/(?=Q:|A:)/);
-  return splitChat.map((message) => message.slice(2));
+const removeCharsFromStart = (str: string, numChars: number) => {
+  return str.substring(numChars);
 };
 
 export const useOpenCalm = () => {
@@ -56,9 +55,9 @@ export const useOpenCalm = () => {
       formattedChat = formatChat([...chat, message]);
     }
     const data = await requestOpenCalm(formattedChat);
-    const parsedChat = parseChat(data);
-    setChat(parsedChat);
-    setLocalStrage("chat", parsedChat);
+    const response = removeCharsFromStart(data, formattedChat.length);
+    setChat([...chat, message, response]);
+    setLocalStrage("chat", [...chat, message, response]);
   };
 
   const resetChat = () => {
