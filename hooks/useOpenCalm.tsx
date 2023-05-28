@@ -20,18 +20,6 @@ const setLocalStrage = (key: string, value: any) => {
   }
 };
 
-// const formatChat = (chat: string[]) => {
-//   let formattedChat = chat
-//     .map((message, index) => (index % 2 === 0 ? "Q:" : "A:") + message)
-//     .join("");
-//   formattedChat += "A:";
-//   return formattedChat;
-// };
-
-// const removeCharsFromStart = (str: string, numChars: number) => {
-//   return str.substring(numChars);
-// };
-
 export const useOpenCalm = () => {
   const initialChat = ["こんにちは", "こんにちは！何かお手伝いできることがありますか？"];
   const [input, setInput] = useState("");
@@ -46,24 +34,14 @@ export const useOpenCalm = () => {
   }, []);
 
   const addChat = async (message: string) => {
-    // let formattedChat;
     if (!chat || chat.length == 0) {
       setChat([message, "リクエスト中..."]);
-      // formattedChat = formatChat([message]);
     } else {
       setChat([...chat, message, "リクエスト中..."]);
-      // formattedChat = formatChat([...chat, message]);
     }
-    // const data = await requestOpenCalm(formattedChat);
-    console.log(chat);
     const data = await requestOpenCalm(message, chat);
-    // const response = removeCharsFromStart(data, formattedChat.length);
-    // setChat([...chat, message, response]);
-    // setLocalStrage("chat", [...chat, message, response]);
     setChat([...chat, message, data]);
     setLocalStrage("chat", [...chat, message, data]);
-    // console.log("request", formattedChat);
-    // console.log("response", data);
   };
 
   const resetChat = () => {
@@ -77,6 +55,7 @@ export const useOpenCalm = () => {
         "https://opencalm.ngrok.app",
         {
           instruction: message,
+          context: chat.toString(),
         },
         {
           headers: {
